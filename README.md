@@ -1,8 +1,5 @@
-# Airline Registration System
+# Airline Reservation System
 
-This is a simple Airline Registration System built using C++
+This is a simple Airline Reservation System built using C++
 
-- main menu
-- form fill
-- flight choose
-- ticket 
+

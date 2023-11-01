@@ -7,7 +7,10 @@ using namespace std;
 
 class AirlineReservationSystem {
 private:
-    struct Flight {
+    class Flight {
+    friend class AirlineReservationSystem;
+    friend class Ticket;
+    private:
         string flightNumber;
         string departureCity;
         string arrivalCity;
@@ -16,6 +19,7 @@ private:
         string numberOfSeats;
         string ticketFare;
     
+    public:
         Flight(const string& flight_number, const string& departure_city, const string& arraival_city, const string& departure_time, const string& arraival_time, const string& number_of_seats, const string& ticket_fare) {
             flightNumber = flight_number;
             departureCity = departure_city;
@@ -28,11 +32,15 @@ private:
     };
     vector<Flight> flights;
 
-    struct Passenger {
+    class Passenger {
+    friend class AirlineReservationSystem;
+    friend class Ticket;
+    private:
         string passengerId;
         string name;
         string contact;
     
+    public:
         Passenger() {
             cout << "\nEnter your passenger id:  "; cin >> passengerId;
             cout << "\nEnter your name:  "; cin >> name;
@@ -40,7 +48,9 @@ private:
         }
     };
 
-    struct Ticket {
+    class Ticket {
+    friend class AirlineReservationSystem;
+    private:
         string passengerId;
         string name; 
         string contact;
@@ -49,6 +59,7 @@ private:
         string departureTime;
         string ticketFare;
 
+    public:
         Ticket(const Passenger& passenger, const Flight& flight) {
             passengerId = passenger.passengerId;
             name = passenger.name;
